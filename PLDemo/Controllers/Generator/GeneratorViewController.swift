@@ -9,126 +9,69 @@
 import UIKit
 import CoreData
 
-let kMaxLengthConstant:Int = 20
-
 class GeneratorViewController: PLDemoViewController, UITextFieldDelegate {
-
-    @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var numberField: UITextField!
+    var generatorView : GeneratorInfoView!
     var numberGenerated: String!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
-        self.textView.text = ""
-        self.numberField.delegate = self
-        
-    }
-    
-    func setData() {
-      self.textView.text = self.numberGenerated
-    }
-    
-    func saveData() {
-        
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let entity = NSEntityDescription.entity(forEntityName: "Numbers", in: (appDelegate.context ?? nil)!)
-        let newUser = NSManagedObject(entity: entity!, insertInto: (appDelegate.context ?? nil)!)
-        appDelegate.context!.refresh(newUser, mergeChanges: false)
-        appDelegate.context!.reset()
-        newUser.setValue(self.numberField.text!, forKey: "size")
-        newUser.setValue(self.textView.text!, forKey: "numbers")
-        
-        let date = Date()
-        let formatter = DateFormatter()
-        formatter.dateFormat = "dd.MM.yyyy"
-        
-        let result = formatter.string(from: date)
-        newUser.setValue(result, forKey: "date")
-        
-        do {
-            try (appDelegate.context ?? nil)!.save()
-        } catch {
-            print("Failed saving")
-        }
-    }
-    
-    
-    
-    func getInt(_ data:String) -> Int?
-    {
-        return Int(data)
-    }
-    
-    func showErrors() {
-        // create the alert
-        let alert = UIAlertController(title: "Enter Number", message: "Please enter number between 5 and 20", preferredStyle: UIAlertController.Style.alert)
-        
-        // add an action (button)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-        
-        // show the alert
-        self.present(alert, animated: true, completion: nil)
-    }
-    
-    
-    func requestNumbers() {
-      
-        var request = URLRequest(url: URL(string: kBaseURL + numberField.text! + kParam )!)
-        request.httpMethod = "GET"
-        let task = URLSession.shared.dataTask(with: request) { data, response, error in
-            guard let data = data, error == nil else {                                                 // check for fundamental networking error
-                print("error=\(String(describing: error))")
-                return
-            }
-            
-            if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {           // check for http errors
-                print("statusCode should be 200, but is \(httpStatus.statusCode)")
-                print(response ?? "")
-            }
-            
-            let responseString = String(data: data, encoding: .utf8)
-            print(responseString as Any)
-            self.numberGenerated = responseString
-            
-        }
-        
-        task.resume()
-
     }
     
     @IBAction func generateNumbers() {
-        if((numberField.text?.count) != 0) && ((Int(numberField.text!)! >= 5)){
-            self.requestNumbers()
-            self.setData()
-        }
-        else {
-           self.showErrors()
-        }
-
+    if((numberField.text?.count) != 0) && ((Int(numberField.text!)! >= 5)){
+        self.showActivityIndicatory(uiView: self.view)
+        GetAllNum(max: numberField.text!).executeWithoutJSON(
+            onSuccess: { (string: String) in
+                print(string)
+                self.removeActivityIndicatory(uiView: self.view)
+                self.numberGenerated = string
+                self.setLayout()
+                self.saveData()
+        },
+            onError: { (error: Error) in
+                error.printDescription() })
+    }
+    else {
+        showErrorMessage(view:self) }
     }
     
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        
-        var startString = ""
-        if (textField.text != nil)
-        {
-            startString += textField.text!
+    func setLayout() {
+    let arr = self.numberGenerated.components(separatedBy:"\n")
+        if((self.generatorView) != nil) {
+        self.generatorView.removeFromSuperview()
+    }
+    self.generatorView = GeneratorInfoView(frame:CGRect(x:0,y:100,width:200,height:200))
+    self.generatorView.arr = arr
+    self.view.addSubview(self.generatorView)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if((self.generatorView) != nil) {
+            self.generatorView.removeFromSuperview()
         }
-        startString += string
-        if let limitNumber = getInt(startString)
-        {
-            if limitNumber > kMaxLengthConstant
-            {
-                return false
-            }
-            else
-            {
-                return true;
-            }
-        }
-        else {
-         return false
+    }
+    
+    func saveData() {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        let entity = NSEntityDescription.entity(forEntityName: "Numbers", in: (context ))
+        let numb = NSManagedObject(entity: entity!, insertInto: (context ))
+        numb.setValue(self.numberField.text!, forKey: "size")
+        numb.setValue(self.numberGenerated!, forKey: "numbers")
+
+        let date = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd/MM/yyyy"
+
+        let result = formatter.string(from: date)
+        numb.setValue(result, forKey: "date")
+
+        do {
+            try (context.save())
+        } catch {
+            print("Failed saving")
         }
     }
 }

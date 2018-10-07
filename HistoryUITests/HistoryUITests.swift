@@ -30,6 +30,39 @@ class HistoryUITests: XCTestCase {
         // Use recording to get started writing UI tests.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
-   
+    
+       func testTabs() {
+    
+    let app = XCUIApplication()
+    let tabBarsQuery = app.tabBars
+    tabBarsQuery.buttons["History"].tap()
+    tabBarsQuery.buttons["Generator"].tap()
+    
+    }
+    
+    func testSelection() {
+         let app = XCUIApplication()
+        let circledPlayButton = app.buttons["circled play"]
+        circledPlayButton.tap()
+        app.alerts["Enter Number"].buttons["OK"].tap()
+        app.children(matching: .window).element(boundBy: 0).children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element/*@START_MENU_TOKEN@*/.swipeRight()/*[[".swipeUp()",".swipeRight()"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
+        circledPlayButton.tap()
+    }
+    
+    
+    func testLabel() {
+        let app = XCUIApplication()
+        let button = app.children(matching: .window).element(boundBy: 0).children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .button).element
+        button.tap()
+        app.alerts["Enter Number"].buttons["OK"].tap()
+        app.textFields["Enter here"].tap()
+        button.tap()
+        
+        let tabBarsQuery = app.tabBars
+        let historyButton = tabBarsQuery.buttons["History"]
+        historyButton.tap()
+        tabBarsQuery.buttons["Generator"].tap()
+        historyButton.tap()
+    }
     
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CA1616642169D81900A73C5C /* CoreDataStackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1616632169D81800A73C5C /* CoreDataStackManager.swift */; };
 		CA1BE75D2165E5C000FBC898 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1BE75C2165E5C000FBC898 /* AppDelegate.swift */; };
 		CA1BE7642165E5C000FBC898 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA1BE7622165E5C000FBC898 /* Main.storyboard */; };
 		CA1BE7662165E5C100FBC898 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA1BE7652165E5C100FBC898 /* Assets.xcassets */; };
@@ -25,9 +26,16 @@
 		CA3364B9216709430062F412 /* HistoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3364B8216709430062F412 /* HistoryTests.swift */; };
 		CA3364C7216709500062F412 /* GeneraterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3364C6216709500062F412 /* GeneraterTests.swift */; };
 		CA3364CF216715730062F412 /* HistoryInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA3364CE216715730062F412 /* HistoryInfoView.xib */; };
-		CA3364D1216715A00062F412 /* GeneratorInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA3364D0216715A00062F412 /* GeneratorInfoView.xib */; };
 		CA3364D52167165E0062F412 /* PLDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3364D42167165E0062F412 /* PLDemoViewController.swift */; };
 		CA3364D7216863F30062F412 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3364D6216863F30062F412 /* Constants.swift */; };
+		CA3364DA2168703F0062F412 /* RequestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3364D92168703F0062F412 /* RequestData.swift */; };
+		CA3364DE216870E30062F412 /* RequestType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3364DD216870E30062F412 /* RequestType.swift */; };
+		CA3364E0216871BD0062F412 /* NetworkDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3364DF216871BD0062F412 /* NetworkDispatcher.swift */; };
+		CA3364E2216871ED0062F412 /* URLSessionNetworkDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3364E1216871ED0062F412 /* URLSessionNetworkDispatcher.swift */; };
+		CA3364E4216872320062F412 /* RequestType+execute.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3364E3216872320062F412 /* RequestType+execute.swift */; };
+		CA3364EA216895380062F412 /* GenerateNumberAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3364E9216895380062F412 /* GenerateNumberAPI.swift */; };
+		CA3364EC216980FC0062F412 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3364EB216980FC0062F412 /* Extensions.swift */; };
+		CA3364EE2169810F0062F412 /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3364ED2169810F0062F412 /* Preferences.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +84,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CA1616632169D81800A73C5C /* CoreDataStackManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStackManager.swift; sourceTree = "<group>"; };
 		CA1BE7592165E5C000FBC898 /* PLDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PLDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA1BE75C2165E5C000FBC898 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CA1BE7632165E5C000FBC898 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -108,9 +117,16 @@
 		CA3364C6216709500062F412 /* GeneraterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneraterTests.swift; sourceTree = "<group>"; };
 		CA3364C8216709500062F412 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CA3364CE216715730062F412 /* HistoryInfoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryInfoView.xib; sourceTree = "<group>"; };
-		CA3364D0216715A00062F412 /* GeneratorInfoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GeneratorInfoView.xib; sourceTree = "<group>"; };
 		CA3364D42167165E0062F412 /* PLDemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PLDemoViewController.swift; sourceTree = "<group>"; };
 		CA3364D6216863F30062F412 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		CA3364D92168703F0062F412 /* RequestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestData.swift; sourceTree = "<group>"; };
+		CA3364DD216870E30062F412 /* RequestType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestType.swift; sourceTree = "<group>"; };
+		CA3364DF216871BD0062F412 /* NetworkDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDispatcher.swift; sourceTree = "<group>"; };
+		CA3364E1216871ED0062F412 /* URLSessionNetworkDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionNetworkDispatcher.swift; sourceTree = "<group>"; };
+		CA3364E3216872320062F412 /* RequestType+execute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RequestType+execute.swift"; sourceTree = "<group>"; };
+		CA3364E9216895380062F412 /* GenerateNumberAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateNumberAPI.swift; sourceTree = "<group>"; };
+		CA3364EB216980FC0062F412 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		CA3364ED2169810F0062F412 /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,10 +182,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CA1616622169D80200A73C5C /* DataLayer */ = {
+			isa = PBXGroup;
+			children = (
+				CA1616632169D81800A73C5C /* CoreDataStackManager.swift */,
+			);
+			path = DataLayer;
+			sourceTree = "<group>";
+		};
 		CA1BE7502165E5BF00FBC898 = {
 			isa = PBXGroup;
 			children = (
 				CA1BE75B2165E5C000FBC898 /* PLDemo */,
+				CA1616622169D80200A73C5C /* DataLayer */,
+				CA3364D8216870290062F412 /* NetworkLayer */,
 				CA336487216640690062F412 /* Resources */,
 				CA1BE7722165E5C100FBC898 /* PLDemoTests */,
 				CA1BE77D2165E5C100FBC898 /* PLDemoUITests */,
@@ -292,7 +318,6 @@
 			isa = PBXGroup;
 			children = (
 				CA1BE7A22165F2B200FBC898 /* GeneratorInfoView.swift */,
-				CA3364D0216715A00062F412 /* GeneratorInfoView.xib */,
 			);
 			path = Generator;
 			sourceTree = "<group>";
@@ -355,6 +380,8 @@
 			children = (
 				CA3364D3216716420062F412 /* Controller */,
 				CA3364D6216863F30062F412 /* Constants.swift */,
+				CA3364EB216980FC0062F412 /* Extensions.swift */,
+				CA3364ED2169810F0062F412 /* Preferences.swift */,
 			);
 			path = Parent;
 			sourceTree = "<group>";
@@ -365,6 +392,20 @@
 				CA3364D42167165E0062F412 /* PLDemoViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		CA3364D8216870290062F412 /* NetworkLayer */ = {
+			isa = PBXGroup;
+			children = (
+				CA3364E9216895380062F412 /* GenerateNumberAPI.swift */,
+				CA3364D92168703F0062F412 /* RequestData.swift */,
+				CA3364DD216870E30062F412 /* RequestType.swift */,
+				CA3364DF216871BD0062F412 /* NetworkDispatcher.swift */,
+				CA3364E1216871ED0062F412 /* URLSessionNetworkDispatcher.swift */,
+				CA3364E3216872320062F412 /* RequestType+execute.swift */,
+			);
+			name = NetworkLayer;
+			path = PLDemo/NetworkLayer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -564,7 +605,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				CA3364CF216715730062F412 /* HistoryInfoView.xib in Resources */,
-				CA3364D1216715A00062F412 /* GeneratorInfoView.xib in Resources */,
 				CA1BE7692165E5C100FBC898 /* LaunchScreen.storyboard in Resources */,
 				CA1BE7662165E5C100FBC898 /* Assets.xcassets in Resources */,
 				CA1BE7642165E5C000FBC898 /* Main.storyboard in Resources */,
@@ -621,13 +661,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				CA1BE7A32165F2B200FBC898 /* GeneratorInfoView.swift in Sources */,
+				CA3364EA216895380062F412 /* GenerateNumberAPI.swift in Sources */,
+				CA3364E2216871ED0062F412 /* URLSessionNetworkDispatcher.swift in Sources */,
+				CA3364DE216870E30062F412 /* RequestType.swift in Sources */,
+				CA3364E0216871BD0062F412 /* NetworkDispatcher.swift in Sources */,
+				CA3364DA2168703F0062F412 /* RequestData.swift in Sources */,
 				CA1BE75D2165E5C000FBC898 /* AppDelegate.swift in Sources */,
 				CA1BE7A92165F3FA00FBC898 /* History.swift in Sources */,
+				CA3364EE2169810F0062F412 /* Preferences.swift in Sources */,
 				CA1BE79D2165F1D900FBC898 /* GeneratorViewController.swift in Sources */,
 				CA1BE7A72165F3BC00FBC898 /* Generator.swift in Sources */,
 				CA3364D7216863F30062F412 /* Constants.swift in Sources */,
 				CA336489216640780062F412 /* Numbers.xcdatamodel in Sources */,
+				CA1616642169D81900A73C5C /* CoreDataStackManager.swift in Sources */,
 				CA3364D52167165E0062F412 /* PLDemoViewController.swift in Sources */,
+				CA3364E4216872320062F412 /* RequestType+execute.swift in Sources */,
+				CA3364EC216980FC0062F412 /* Extensions.swift in Sources */,
 				CA1BE79C2165F1D900FBC898 /* HistoryViewController.swift in Sources */,
 				CA1BE7A52165F2F900FBC898 /* HistoryInfoView.swift in Sources */,
 			);

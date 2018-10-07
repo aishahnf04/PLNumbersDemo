@@ -37,4 +37,7 @@ class HistoryTests: XCTestCase {
         let _ = history.view
         //XCTAssertEqual("History1", history.navigationItem.title!)
     }
+    func testLabel() {
+        
+    }
 }
