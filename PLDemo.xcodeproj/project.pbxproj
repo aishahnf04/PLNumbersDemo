@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		CA1616642169D81900A73C5C /* CoreDataStackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1616632169D81800A73C5C /* CoreDataStackManager.swift */; };
+		CA16166A216B09B300A73C5C /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = CA161669216B09B300A73C5C /* README.md */; };
 		CA1BE75D2165E5C000FBC898 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1BE75C2165E5C000FBC898 /* AppDelegate.swift */; };
 		CA1BE7642165E5C000FBC898 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA1BE7622165E5C000FBC898 /* Main.storyboard */; };
 		CA1BE7662165E5C100FBC898 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA1BE7652165E5C100FBC898 /* Assets.xcassets */; };
@@ -85,6 +86,7 @@
 
 /* Begin PBXFileReference section */
 		CA1616632169D81800A73C5C /* CoreDataStackManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStackManager.swift; sourceTree = "<group>"; };
+		CA161669216B09B300A73C5C /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		CA1BE7592165E5C000FBC898 /* PLDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PLDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA1BE75C2165E5C000FBC898 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CA1BE7632165E5C000FBC898 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -190,9 +192,17 @@
 			path = DataLayer;
 			sourceTree = "<group>";
 		};
+		CA16166B216B0BC300A73C5C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
+			sourceTree = SOURCE_ROOT;
+		};
 		CA1BE7502165E5BF00FBC898 = {
 			isa = PBXGroup;
 			children = (
+				CA161669216B09B300A73C5C /* README.md */,
 				CA1BE75B2165E5C000FBC898 /* PLDemo */,
 				CA1616622169D80200A73C5C /* DataLayer */,
 				CA3364D8216870290062F412 /* NetworkLayer */,
@@ -397,6 +407,7 @@
 		CA3364D8216870290062F412 /* NetworkLayer */ = {
 			isa = PBXGroup;
 			children = (
+				CA16166B216B0BC300A73C5C /* Resources */,
 				CA3364E9216895380062F412 /* GenerateNumberAPI.swift */,
 				CA3364D92168703F0062F412 /* RequestData.swift */,
 				CA3364DD216870E30062F412 /* RequestType.swift */,
@@ -606,6 +617,7 @@
 			files = (
 				CA3364CF216715730062F412 /* HistoryInfoView.xib in Resources */,
 				CA1BE7692165E5C100FBC898 /* LaunchScreen.storyboard in Resources */,
+				CA16166A216B09B300A73C5C /* README.md in Resources */,
 				CA1BE7662165E5C100FBC898 /* Assets.xcassets in Resources */,
 				CA1BE7642165E5C000FBC898 /* Main.storyboard in Resources */,
 			);

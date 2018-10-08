@@ -27,8 +27,8 @@
                                 </items>
                             </navigationBar>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3qc-Iz-ycj" userLabel="GeneraterButton">
-                                <rect key="frame" x="324" y="79" width="50" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <rect key="frame" x="295" y="66" width="80" height="80"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="circled_play"/>
                                 <connections>
                                     <action selector="generateNumbers" destination="9pv-A4-QxB" eventType="touchUpInside" id="v1b-5b-nvH"/>

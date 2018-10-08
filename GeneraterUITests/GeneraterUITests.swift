@@ -31,29 +31,28 @@ class GeneraterUITests: XCTestCase {
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
     
-        func testTextfeild(){
+    func testTextfeild(){
             
-            let app = XCUIApplication()
-            app.textFields["Enter here"].tap()
-            app.buttons["circled play"].tap()
-            
-            let tabBarsQuery = app.tabBars
-            let historyButton = tabBarsQuery.buttons["History"]
-            historyButton.tap()
-            
-            let generatorButton = tabBarsQuery.buttons["Generator"]
-            generatorButton.tap()
-            historyButton.tap()
-            generatorButton.tap()
-            historyButton.tap()
-            generatorButton.tap()
-            generatorButton.tap()
-            historyButton.tap()
-            generatorButton.tap()
+        let app = XCUIApplication()
+        app.textFields["Enter here"].tap()
+        app.buttons["circled play"].tap()
+        
+        let tabBarsQuery = app.tabBars
+        let historyButton = tabBarsQuery.buttons["History"]
+        historyButton.tap()
+        
+        let generatorButton = tabBarsQuery.buttons["Generator"]
+        generatorButton.tap()
+        historyButton.tap()
+        generatorButton.tap()
+        historyButton.tap()
+        generatorButton.tap()
+        generatorButton.tap()
+        historyButton.tap()
+        generatorButton.tap()
             
     }
     
-   
     func testCirclesfeild(){
         
         let app = XCUIApplication()
@@ -61,6 +60,44 @@ class GeneraterUITests: XCTestCase {
         app.buttons["circled play"].tap()
         app.tabBars.buttons["History"].tap()
         XCUIApplication().tabBars.buttons["Generator"].tap()
-         XCUIApplication().children(matching: .window).element(boundBy: 0).children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .button).element.tap()
+        XCUIApplication().children(matching: .window).element(boundBy: 0).children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .button).element.tap()
     }
+    
+    func testTextField() {
+        
+        let app = XCUIApplication()
+        let enterNameTextField =  app.otherElements.textFields["Enter here"]
+        enterNameTextField.tap()
+        XCTAssertTrue(enterNameTextField.exists)
+        
+    }
+    
+    func testTextFieldAlphabet() {
+        
+        let app = XCUIApplication()
+        let enterNameTextField =  app.otherElements.textFields["Enter here"]
+        enterNameTextField.tap()
+        enterNameTextField.typeText("Hello John")
+    }
+    
+    func testTextFieldNum() {
+        
+        let app = XCUIApplication()
+        let enterNameTextField =  app.otherElements.textFields["Enter here"]
+        enterNameTextField.tap()
+        enterNameTextField.typeText("2")
+    }
+    
+    func textfieldforExist() {
+        let app = XCUIApplication()
+        let enterNameTextField =  app.otherElements.textFields["Enter here"]
+        XCTAssertEqual(enterNameTextField.exists, true)
+    }
+    
+    func messageText()
+    {
+       // let tooShortPasswordMessage = app.staticTexts["Password must exceed 3 characters"]
+        //XCTAssertEqual(tooShortPasswordMessage.label, "Password must exceed 3 characters")
+    }
+    
 }

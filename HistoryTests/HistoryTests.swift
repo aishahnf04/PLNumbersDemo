@@ -29,15 +29,4 @@ class HistoryTests: XCTestCase {
             // Put the code you want to measure the time of here.
         }
     }
-    func test_title_History() {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let appTabBarController = storyboard.instantiateInitialViewController() as! UITabBarController
-        let history = appTabBarController.viewControllers?.last as! HistoryViewController
-        
-        let _ = history.view
-        //XCTAssertEqual("History1", history.navigationItem.title!)
-    }
-    func testLabel() {
-        
-    }
 }

@@ -15,7 +15,13 @@ class HistoryTableViewCell: UITableViewCell {
     @IBOutlet weak var sizeLabel: UILabel!
     @IBOutlet weak var numbersLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
+    override func prepareForReuse() -> Void {
+        sizeLabel.text = nil
+        numbersLabel.text = nil
+        dateLabel.text = nil
+    }
 }
+
 
 class HistoryViewController: PLDemoViewController , UITableViewDelegate, UITableViewDataSource{
     
@@ -107,4 +113,6 @@ class HistoryViewController: PLDemoViewController , UITableViewDelegate, UITable
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return CGFloat(kMaxSize)
     }
+    
+    
 }

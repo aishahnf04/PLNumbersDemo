@@ -14,6 +14,8 @@ class PLDemoViewController: UIViewController {
     var activityContainer: UIView? = nil
     override func viewDidLoad() {
         super.viewDidLoad()
+        UITabBar.appearance().tintColor = UIColor.white
+        UITabBar.appearance().unselectedItemTintColor = UIColor.black
         self.view.backgroundColor = myColor
         // Do any additional setup after loading the view.
     }
