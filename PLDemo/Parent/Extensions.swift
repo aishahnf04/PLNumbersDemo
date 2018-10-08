@@ -64,6 +64,7 @@ func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange
 }
     
 func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    textField.resignFirstResponder()
     return true
 }
 }

@@ -29,26 +29,39 @@ class GeneratorInfoView: UIView {
         // Drawing code
         arr = arr.filter({ $0 != ""}) // issue with webservice
         let colorArr = ["#68d4f8","#f6a4eb","#f5be58","#fa755a","#3ecf8e","#7795f8"]
-        var countTag = kCountTag
         for var item in arr {
             if(item == "") { //issue with webservice
                 item = "0"
             }
         
-            let randY :Int  = randomInt(min: 1, max: 10)
+            let randY :Int  = randomInt(min: 1, max: 5)
             let randColor :Int  = randomInt(min: 0, max: 5)
             let color = UIColor.init(hexString:colorArr[randColor])
             let size : CGFloat  = 40//(6.0 * CGFloat((Float)(getInt(data:item)!)))
-            let circle = UIView(frame: CGRect(x: CGFloat((Float)(getInt(data:item)!))*16, y: CGFloat((Float)(getInt(data:item)!))+CGFloat((Float)(randY))*15 + CGFloat((Float)(randY))*40, width: size, height: size))
-            circle.tag = countTag
+            let y : CGFloat =  CGFloat((Float)(getInt(data:item)!))+CGFloat((Float)(randY))*15 + CGFloat((Float)(randY))*40
+            let x : CGFloat = CGFloat((Float)(getInt(data:item)!)) + CGFloat((randColor * 60))
+            let circle = UIView(frame: CGRect(x:x, y:y, width: size, height: size))
+        
             // circle.center.y = self.view.center.y
-            circle.backgroundColor = .white
-            circle.layer.borderColor = color.cgColor
+            circle.backgroundColor = color
+            circle.layer.borderColor =  color.cgColor
             circle.layer.cornerRadius = 20
             circle.layer.borderWidth = 2.0
-            self.addText(text: item, view: circle,color: color,sized: CFloat(size))
+            // add shodow
+            circle.layer.shadowColor = UIColor.gray.cgColor
+            circle.layer.shadowOffset = CGSize(width: 2, height: 5)
+            circle.layer.shadowOpacity = 0.5
+            circle.layer.shadowRadius = 1.0
+            circle.clipsToBounds = false
+            self.addText(text: item, view: circle,color: .white,sized: CFloat(size))
             self.addSubview(circle)
-            countTag += 1
+            
+            let originalTransform = circle.transform
+            let scaledTransform = originalTransform.scaledBy(x: 1.0, y: 1.0)
+            let scaledAndTranslatedTransform = scaledTransform.translatedBy(x: 0.0, y: 600.0)
+            UIView.animate(withDuration: 0.3, animations: {
+                circle.transform = scaledAndTranslatedTransform
+            })
             circle.frame.size = CGSize(width: 0, height: 0)
             UIView.animate(withDuration: 2, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.8, options: .curveEaseIn, animations: {
                 // Do animation

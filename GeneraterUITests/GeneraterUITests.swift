@@ -30,5 +30,37 @@ class GeneraterUITests: XCTestCase {
         // Use recording to get started writing UI tests.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
-
+    
+        func testTextfeild(){
+            
+            let app = XCUIApplication()
+            app.textFields["Enter here"].tap()
+            app.buttons["circled play"].tap()
+            
+            let tabBarsQuery = app.tabBars
+            let historyButton = tabBarsQuery.buttons["History"]
+            historyButton.tap()
+            
+            let generatorButton = tabBarsQuery.buttons["Generator"]
+            generatorButton.tap()
+            historyButton.tap()
+            generatorButton.tap()
+            historyButton.tap()
+            generatorButton.tap()
+            generatorButton.tap()
+            historyButton.tap()
+            generatorButton.tap()
+            
+    }
+    
+   
+    func testCirclesfeild(){
+        
+        let app = XCUIApplication()
+        app.textFields["Enter here"].tap()
+        app.buttons["circled play"].tap()
+        app.tabBars.buttons["History"].tap()
+        XCUIApplication().tabBars.buttons["Generator"].tap()
+         XCUIApplication().children(matching: .window).element(boundBy: 0).children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .button).element.tap()
+    }
 }

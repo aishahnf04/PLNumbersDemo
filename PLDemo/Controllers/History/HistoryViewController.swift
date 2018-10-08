@@ -23,14 +23,15 @@ class HistoryViewController: PLDemoViewController , UITableViewDelegate, UITable
     var array = [History]()
     
     override func viewWillAppear(_ animated: Bool) {
-         self.getData()
+       self.array.removeAll()
+       self.getData()
+       self.historyTableView.reloadData()
     }
     override func viewDidLoad() {
         super.viewDidLoad()
         historyTableView.delegate = self
         historyTableView.dataSource = self
         // Do any additional setup after loading the view.
-       
     }
     
     func getData() {
@@ -78,35 +79,32 @@ class HistoryViewController: PLDemoViewController , UITableViewDelegate, UITable
         cell.numbersLabel.text = myStr//history.numbers
         cell.sizeLabel.text = history.size
         cell.backgroundColor = .clear
-        let arr = history.numbers.components(separatedBy:"\n")
+        var arr = history.numbers.components(separatedBy:"\n")
+        arr = arr.filter({ $0 != ""}) // issue with webservice
+        var count : Int = 0
         let colorArr = ["#68d4f8","#f6a4eb","#f5be58","#fa755a","#3ecf8e","#7795f8"]
         for var item in arr {
             if(item == "") { //issue with webservice
                 item = "0"
             }
+            count = count + 1
             let randColor :Int  = randomInt(min: 0, max: 5)
             let color = UIColor.init(hexString:colorArr[randColor])
-            let size : CGFloat  = 40//(6.0 * CGFloat((Float)(getInt(data:item)!)))
-            let circle = UIView(frame: CGRect(x: 100 + (60)*CGFloat((Float)(getInt(data:item)!)), y: 180, width: 10, height: size))
+            let size : CGFloat  = CGFloat(10) + (10)*CGFloat((Float)(getInt(data:item)!))
+            let circle = UIView(frame: CGRect(x: 100 + count * 10, y: 50, width: 4, height: Int(size)))
             // circle.center.y = self.view.center.y
             circle.backgroundColor = color
             circle.layer.borderColor = color.cgColor
-            circle.layer.cornerRadius = 5
+            circle.layer.cornerRadius = 2
             circle.layer.borderWidth = 2.0
             cell.addSubview(circle)
             cell.selectionStyle = .none
-            circle.frame.size = CGSize(width: 0, height: 0)
-            UIView.animate(withDuration: 2, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.8, options: .curveEaseIn, animations: {
-                // Do animation
-                circle.frame.size = CGSize(width: 10, height: size)
-                let scaleTransform = CGAffineTransform(scaleX: 2.0, y: 2.0)
-                circle.transform = scaleTransform
-            }, completion: nil)
+            circle.transform = CGAffineTransform(scaleX: 1,y: -1);
         }
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 300
+        return CGFloat(kMaxSize)
     }
 }

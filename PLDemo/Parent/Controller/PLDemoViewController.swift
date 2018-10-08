@@ -36,6 +36,12 @@ class PLDemoViewController: UIViewController {
         view.present(alert, animated: true, completion: nil)
     }
     
+    func showErrorMessage(view: UIViewController, message:String) {
+        let alert = UIAlertController(title: "Error", message:message, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+        view.present(alert, animated: true, completion: nil)
+    }
+    
     func showActivityIndicatory(uiView: UIView) {
         activityContainer = UIView()
         activityContainer!.frame = uiView.frame

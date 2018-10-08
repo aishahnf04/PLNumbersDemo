@@ -65,4 +65,16 @@ class HistoryUITests: XCTestCase {
         historyButton.tap()
     }
     
+    
+   
+    func testHistoryData()
+    {
+        let app = XCUIApplication()
+        app.children(matching: .window).element(boundBy: 0).children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.tap()
+        app.tabBars.buttons["History"].tap()
+        
+        let cellsQuery = app.tables.cells.containing(.staticText, identifier:"1,4,5,3,2,")
+        cellsQuery.children(matching: .other).element(boundBy: 9).tap()
+        cellsQuery.children(matching: .other).element(boundBy: 8).tap()
+    }
 }

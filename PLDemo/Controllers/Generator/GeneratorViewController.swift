@@ -30,10 +30,13 @@ class GeneratorViewController: PLDemoViewController, UITextFieldDelegate {
                 self.saveData()
         },
             onError: { (error: Error) in
-                error.printDescription() })
+                error.printDescription()
+                self.showErrorMessage(view:self, message:error.localizedDescription)
+                self.removeActivityIndicatory(uiView: self.view)
+        })
     }
     else {
-        showErrorMessage(view:self) }
+        self.showErrorMessage(view:self) }
     }
     
     func setLayout() {
@@ -67,11 +70,15 @@ class GeneratorViewController: PLDemoViewController, UITextFieldDelegate {
 
         let result = formatter.string(from: date)
         numb.setValue(result, forKey: "date")
-
+        appDelegate.saveContext()
         do {
             try (context.save())
+            
         } catch {
             print("Failed saving")
         }
+       
     }
+    
+    
 }
