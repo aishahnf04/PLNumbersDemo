@@ -20,6 +20,7 @@ class HistoryTableViewCell: UITableViewCell {
         numbersLabel.text = nil
         dateLabel.text = nil
     }
+    
 }
 
 
@@ -78,7 +79,7 @@ class HistoryViewController: PLDemoViewController , UITableViewDelegate, UITable
     internal func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "HistoryCell", for: indexPath)
             as! HistoryTableViewCell
-        
+        tableView.setValue(nil, forKey: "_reusableTableCells")
         let history = array[indexPath.row] as History
         cell.dateLabel?.text = history.date
         let myStr = history.numbers.replacingOccurrences(of:"\n", with: ",")
