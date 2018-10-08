@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		CA1616642169D81900A73C5C /* CoreDataStackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1616632169D81800A73C5C /* CoreDataStackManager.swift */; };
 		CA16166A216B09B300A73C5C /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = CA161669216B09B300A73C5C /* README.md */; };
+		CA16166E216B112300A73C5C /* Numbers.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = CA16166D216B112300A73C5C /* Numbers.xcdatamodel */; };
 		CA1BE75D2165E5C000FBC898 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1BE75C2165E5C000FBC898 /* AppDelegate.swift */; };
 		CA1BE7642165E5C000FBC898 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA1BE7622165E5C000FBC898 /* Main.storyboard */; };
 		CA1BE7662165E5C100FBC898 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA1BE7652165E5C100FBC898 /* Assets.xcassets */; };
@@ -21,7 +22,6 @@
 		CA1BE7A52165F2F900FBC898 /* HistoryInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1BE7A42165F2F900FBC898 /* HistoryInfoView.swift */; };
 		CA1BE7A72165F3BC00FBC898 /* Generator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1BE7A62165F3BC00FBC898 /* Generator.swift */; };
 		CA1BE7A92165F3FA00FBC898 /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1BE7A82165F3FA00FBC898 /* History.swift */; };
-		CA336489216640780062F412 /* Numbers.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = CA336488216640780062F412 /* Numbers.xcdatamodel */; };
 		CA33649D216708E40062F412 /* GeneraterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA33649C216708E40062F412 /* GeneraterUITests.swift */; };
 		CA3364AB216709350062F412 /* HistoryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3364AA216709350062F412 /* HistoryUITests.swift */; };
 		CA3364B9216709430062F412 /* HistoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3364B8216709430062F412 /* HistoryTests.swift */; };
@@ -87,6 +87,7 @@
 /* Begin PBXFileReference section */
 		CA1616632169D81800A73C5C /* CoreDataStackManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStackManager.swift; sourceTree = "<group>"; };
 		CA161669216B09B300A73C5C /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		CA16166D216B112300A73C5C /* Numbers.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Numbers.xcdatamodel; sourceTree = "<group>"; };
 		CA1BE7592165E5C000FBC898 /* PLDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PLDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA1BE75C2165E5C000FBC898 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CA1BE7632165E5C000FBC898 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -105,7 +106,6 @@
 		CA1BE7A42165F2F900FBC898 /* HistoryInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryInfoView.swift; sourceTree = "<group>"; };
 		CA1BE7A62165F3BC00FBC898 /* Generator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Generator.swift; sourceTree = "<group>"; };
 		CA1BE7A82165F3FA00FBC898 /* History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
-		CA336488216640780062F412 /* Numbers.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; name = Numbers.xcdatamodel; path = PLDemo/Controllers/Generator/Numbers.xcdatamodeld/Numbers.xcdatamodel; sourceTree = SOURCE_ROOT; };
 		CA33649A216708E40062F412 /* GeneraterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GeneraterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA33649C216708E40062F412 /* GeneraterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneraterUITests.swift; sourceTree = "<group>"; };
 		CA33649E216708E40062F412 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -192,21 +192,22 @@
 			path = DataLayer;
 			sourceTree = "<group>";
 		};
-		CA16166B216B0BC300A73C5C /* Resources */ = {
+		CA16166C216B10EE00A73C5C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				CA16166D216B112300A73C5C /* Numbers.xcdatamodel */,
 			);
 			path = Resources;
-			sourceTree = SOURCE_ROOT;
+			sourceTree = "<group>";
 		};
 		CA1BE7502165E5BF00FBC898 = {
 			isa = PBXGroup;
 			children = (
+				CA16166C216B10EE00A73C5C /* Resources */,
 				CA161669216B09B300A73C5C /* README.md */,
 				CA1BE75B2165E5C000FBC898 /* PLDemo */,
 				CA1616622169D80200A73C5C /* DataLayer */,
 				CA3364D8216870290062F412 /* NetworkLayer */,
-				CA336487216640690062F412 /* Resources */,
 				CA1BE7722165E5C100FBC898 /* PLDemoTests */,
 				CA1BE77D2165E5C100FBC898 /* PLDemoUITests */,
 				CA33649B216708E40062F412 /* GeneraterUITests */,
@@ -341,14 +342,6 @@
 			path = History;
 			sourceTree = "<group>";
 		};
-		CA336487216640690062F412 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				CA336488216640780062F412 /* Numbers.xcdatamodel */,
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
 		CA33649B216708E40062F412 /* GeneraterUITests */ = {
 			isa = PBXGroup;
 			children = (
@@ -407,7 +400,6 @@
 		CA3364D8216870290062F412 /* NetworkLayer */ = {
 			isa = PBXGroup;
 			children = (
-				CA16166B216B0BC300A73C5C /* Resources */,
 				CA3364E9216895380062F412 /* GenerateNumberAPI.swift */,
 				CA3364D92168703F0062F412 /* RequestData.swift */,
 				CA3364DD216870E30062F412 /* RequestType.swift */,
@@ -683,8 +675,8 @@
 				CA3364EE2169810F0062F412 /* Preferences.swift in Sources */,
 				CA1BE79D2165F1D900FBC898 /* GeneratorViewController.swift in Sources */,
 				CA1BE7A72165F3BC00FBC898 /* Generator.swift in Sources */,
+				CA16166E216B112300A73C5C /* Numbers.xcdatamodel in Sources */,
 				CA3364D7216863F30062F412 /* Constants.swift in Sources */,
-				CA336489216640780062F412 /* Numbers.xcdatamodel in Sources */,
 				CA1616642169D81900A73C5C /* CoreDataStackManager.swift in Sources */,
 				CA3364D52167165E0062F412 /* PLDemoViewController.swift in Sources */,
 				CA3364E4216872320062F412 /* RequestType+execute.swift in Sources */,
